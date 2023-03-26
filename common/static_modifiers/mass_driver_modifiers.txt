@@ -1,0 +1,4 @@
+mass_driver_relic_modifier = {
+	ship_weapon_range_mult = 1.0
+	ship_orbital_bombardment_mult = 1.0
+}

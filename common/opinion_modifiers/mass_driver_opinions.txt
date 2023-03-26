@@ -1,0 +1,8 @@
+mass_driver_opinion_suspicious = {
+	opinion = {
+		base = -50
+	}
+	decay = {
+		base = 2
+	}
+}

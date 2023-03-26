@@ -1,0 +1,360 @@
+namespace = mass_driver 
+
+
+# Sublight Exploration Probes
+country_event = {
+	id = mass_driver.100
+	title = mass_driver.100
+	desc = mass_driver.100.desc
+	picture = GFX_evt_physics_research
+	show_sound = event_sensor_ping
+
+	fire_only_once = yes
+
+	mean_time_to_happen = { days = 360 } 
+
+	trigger = {
+		is_ai = no
+		has_origin = origin_fear_of_the_dark
+		has_technology = tech_experimental_subspace_navigation
+		OR = {
+			any_planet_within_border = {
+				has_modifier = ruined_mass_driver
+			}
+			any_subject = {
+				any_planet_within_border = {
+					has_modifier = ruined_mass_driver
+				}	
+			}
+		}
+	}
+
+	option = {
+		name = mass_driver.100.y
+		trigger = {
+			NOT = {
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
+			}
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = hunter_system@root
+			}
+			random_system_planet = {
+				limit = {
+					has_planet_flag = fotd_moon@root
+				}
+				save_event_target_as = fevorian_moon
+				orbit = {
+					save_event_target_as = fevorian_planet
+				}
+			}
+		}	
+
+
+		enable_special_project = {
+			name = mass_driver_project_repair
+			location = event_target:fevorian_moon
+			owner = root
+		}
+	}
+
+	option = {
+		name = mass_driver.100.n
+		trigger = {
+			NOR = {
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @tier3unityreward
+			min = @tier3unitymin
+			max = @tier3unitymax
+		}
+	}
+}
+
+
+country_event = {
+	id = mass_driver.200
+	title = mass_driver.200
+	desc = mass_driver.200.desc
+	picture = GFX_evt_megastructure_construction
+	show_sound = event_sensor_ping
+
+	is_triggered_only = yes
+
+	option = {
+		name = mass_driver.200.y
+		custom_tooltip = mass_driver.200.y.tooltip
+		set_country_flag = mass_driver_primed
+	}
+}
+
+
+# This = owner of fleet
+# From = fleet
+# FromFrom = planet (if any)
+country_event = {
+	id = mass_driver.300
+	title = mass_driver.300
+	desc = mass_driver.300.desc
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_sensor_ping
+	is_triggered_only = yes
+
+	trigger = {			
+		has_country_flag = mass_driver_primed
+		NOT = {
+			has_special_project = mass_driver_project_target
+		}
+		from = {
+			is_cloaked = yes
+			is_ship_class = shipclass_science_ship
+		}
+		fromfrom = {
+			is_colony = yes
+			owner = {
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+					#is_country_type = tiyanki
+					is_amoeba_country_type = yes
+					is_country_type = cloud
+					is_drone_country_type = yes
+					is_crystal_country_type = yes
+				}
+				is_primitive = no
+			}
+		}
+		OR = {
+			is_hostile_to = fromfrom.owner
+			fromfrom.owner = {
+				is_hostile_to = root.owner
+			}
+		}
+	}
+
+	option = {
+		name = ACKNOWLEDGED
+		enable_special_project = {
+			name = mass_driver_project_target
+			location = fromfrom
+			owner = root
+		}
+		from = {
+			fleet_action_research_special_project = {
+				special_project = mass_driver_project_target
+				target = fromfrom
+			}
+		}
+		fromfrom = {
+			set_planet_flag = mass_driver_target_flag
+		}
+	}
+}
+
+
+country_event = {
+	id = mass_driver.310
+	title = mass_driver.310
+	desc = mass_driver.310.desc
+	picture = GFX_evt_ship_under_attack
+	show_sound = event_sensor_ping
+	is_triggered_only = yes
+
+	option = {
+		name = ACKNOWLEDGED
+	}
+}
+
+
+
+ship_event = {
+	id = mass_driver.400
+	title = mass_driver.400
+	desc = mass_driver.400.desc
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_sensor_ping
+	is_triggered_only = yes
+
+	immediate = {
+		solar_system = {
+			random_system_planet = {
+				limit = {
+					has_planet_flag = mass_driver_target_flag
+				}
+				save_event_target_as = mass_driver_target_planet
+				remove_planet_flag = mass_driver_target_flag
+			}
+			
+		}
+	}
+
+	option = {  # Fire!
+		name = mass_driver.400.1
+		custom_tooltip = mass_driver.400.1.tooltip
+		
+		owner = {
+			remove_country_flag = mass_driver_primed
+			country_event = {
+				id = mass_driver.500
+			}
+		}
+	}
+
+	option = {  # Change target
+		name = mass_driver.400.2
+		owner = {
+			abort_special_project = {
+				type = mass_driver_project_target
+			}
+		}
+	}
+
+	option = {  # This is a step too far
+		name = mass_driver.400.3
+		owner = {
+			remove_country_flag = mass_driver_primed
+			add_monthly_resource_mult = {
+				resource = unity
+				value = @tier3unityreward
+				min = @tier3unitymin
+				max = @tier3unitymax
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = mass_driver.500
+	title = mass_driver.500
+	desc = mass_driver.500.desc
+	picture = GFX_evt_exploding_planet
+	show_sound = event_super_explosion
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		random_system = {
+			limit = {
+				has_star_flag = hunter_system@root
+			}
+			random_system_planet = {
+				limit = {
+					has_planet_flag = fotd_moon@root
+				}
+				save_event_target_as = fevorian_moon
+				orbit = {
+					save_event_target_as = fevorian_planet
+				}
+			}
+		}
+	}
+
+	option = {  # We have made a terrible mistake
+		name = mass_driver.500.1
+		trigger = {
+			NOR = {
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_militarist
+			}
+		}
+	}
+
+	option = {  # It was worth it
+		name = mass_driver.500.2
+	}
+
+	option = {  # They deserved it
+		name = mass_driver.500.3
+		trigger = {
+			NOR = {
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+			}
+			event_target:fevorian_moon.solar_system = {
+				NOT = { 
+					is_owned_by = root
+				}
+			}
+		}
+	}
+
+	after = {
+		event_target:fevorian_moon = {
+			change_pc = pc_shattered
+			hidden_effect = {
+				remove_modifier = ruined_mass_driver
+				remove_deposit = d_engineering_10				
+			}
+			
+			orbit = {
+				change_pc = pc_shattered
+				hidden_effect = {
+					remove_deposit = yes	
+				}
+			}
+			solar_system = {
+				add_modifier = { 
+					modifier = space_storm
+				}
+				hidden_effect = {					
+					set_star_flag = storm_system
+					star = {
+						create_ambient_object = {
+							type = "space_storm_1"
+							location = this
+						}
+						last_created_ambient_object = {
+							set_ambient_object_flag = space_storm_object
+							set_location = {
+								target = prev
+								distance = 0
+								angle = random
+							}
+						}
+					}
+				}
+			}
+		}
+
+		event_target:mass_driver_target_planet = {
+			if = {
+				limit = {
+					is_planet_class = pc_habitat
+				}
+				spawn_habitat_cracker_effect = yes
+				remove_planet = yes
+			}
+			else_if = {
+				limit = {
+					is_ringworld = yes
+				}
+				spawn_ringworld_cracker_effect = yes
+				change_pc = pc_ringworld_habitable_damaged
+			}
+			else = {
+				change_pc = pc_shattered
+			}
+
+			space_owner = {
+				add_opinion_modifier = {
+					who = root
+					modifier = opinion_cracked_my_world
+				}
+			}
+		}
+		add_relic = mass_driver_relic
+	}
+}
