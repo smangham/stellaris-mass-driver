@@ -34,4 +34,4 @@ If you like this, you might also like:
 [/list]
 
 [h1]Credits[/h1]
-Cover imaage by [url=https://www.flickr.com/photos/nasa2explore/9515819925]NASA[/url].
+Cover image by [url=https://www.flickr.com/photos/nasa2explore/9515819925]NASA[/url].
