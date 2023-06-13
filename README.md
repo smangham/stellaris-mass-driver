@@ -31,6 +31,7 @@ If you like this, you might also like:
 	[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2948086213]Optimal Genomes - Better Genetic Ascension:[/url] Adds combined traits to simplify running a genetically ascended empire.
 	[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1319264195]Loyal Subjects Have Nothing to Fear (from the Colossus):[/url] Loyal vassals and tributaries no longer suffer opinion penalties when you crack a planet.
 	[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2949670744]Shared Burden Balance - People Power:[/url] Adds a flat bonus to political power to the Shared Burden living standard to remove its effective faction influence penalty.
+	[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2987439465]Automate Infrastructure - Gateways & Hyper Relays[/url]: Adds the option to build one-step gateways, or upgrade Hyper Relays to add a gateway (and keep the relay!)
 [/list]
 
 [h1]Credits[/h1]
