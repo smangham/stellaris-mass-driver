@@ -1,8 +1,8 @@
-version="3.8.*"
+version="3.10.*"
 tags={
 	"Military"
 }
-name="[3.8] Mass Driver Rebuilt - Fear the Dark"
+name="[3.10] Mass Driver Rebuilt - Fear the Dark"
 picture="thumbnail.png"
-supported_version="3.8.*"
+supported_version="3.10.*"
 remote_file_id="2953156241"

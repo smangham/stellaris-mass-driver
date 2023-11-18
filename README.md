@@ -1,4 +1,4 @@
-[b]Version 3.8.*[/b]
+[b]Version 3.10.*[/b]
 
 [b]Fear of the Dark[/b] is a really interesting origin, but one of the endings of the chain can be a little underwhelming. Even then, you end it in possession of the Fevorian Mass Driver... and not able to do anything with it.
 This mod adds a small quest chain that lets you rebuild it, and try it out!
