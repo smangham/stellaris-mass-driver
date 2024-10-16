@@ -8,6 +8,7 @@ mass_driver_relic = {
 	activation_duration = @triumph_duration
 	portrait = "GFX_relic_odryskan_crystal"
 	sound = "relic_activation_intact_zro_soulstone"
+	can_be_stolen = yes
 
 	resources = {
 		category = relics
