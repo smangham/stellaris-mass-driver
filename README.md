@@ -1,4 +1,4 @@
-[b]Version 3.13.*[/b]
+[b]Version 3.14.*[/b]
 
 [b]Fear of the Dark[/b] is a really interesting origin, but one of the endings of the chain can be a little underwhelming. Even then, you end it in possession of the Fevorian Mass Driver... and not able to do anything with it.
 This mod adds a small quest chain that lets you rebuild it, and try it out!
@@ -28,9 +28,7 @@ This mod changes no existing files so should have no compatibility issues.
 If you like this, you might also like:
 [list]
 	[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1355094979]Claims Decay - Dynamic Diplomacy:[/url] Friendly empires will renounce their claims on each other over time. Diplomatic Grants makes neutral empires do it too.
-	[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2948086213]Optimal Genomes - Better Genetic Ascension:[/url] Adds combined traits to simplify running a genetically ascended empire.
 	[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=1319264195]Loyal Subjects Have Nothing to Fear (from the Colossus):[/url] Loyal vassals and tributaries no longer suffer opinion penalties when you crack a planet.
-	[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2949670744]Shared Burden Balance - People Power:[/url] Adds a flat bonus to political power to the Shared Burden living standard to remove its effective faction influence penalty.
 	[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2987439465]Automate Infrastructure - Gateways & Hyper Relays[/url]: Adds the option to build one-step gateways, or upgrade Hyper Relays to add a gateway (and keep the relay!)
 [/list]
 
